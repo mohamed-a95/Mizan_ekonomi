@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -14,16 +14,16 @@ const navItems = [
 
 const services = [
   {
-    title: 'Skattehantering och Deklaration',
-    description: 'Professionell hantering av din skattedeklaration med fokus på optimering och regelefterlevnad.'
-  },
-  {
-    title: 'Bokföring och Årsredovisning',
-    description: 'Noggrann bokföring och upprättande av årsredovisningar enligt gällande redovisningsstandarder.'
+    title: 'Redovisning',
+    description: 'Vi tar hand om din löpande bokföring, bokslut och årsredovisning.'
   },
   {
     title: 'Lönehantering',
-    description: 'Komplett löneadministration inklusive lönespecifikationer, arbetsgivardeklarationer och årlig kontrolluppgift.'
+    description: 'Vi hanterar löner, arbetsgivardeklarationer och kontrolluppgifter.'
+  },
+  {
+    title: 'Skatt & Deklaration',
+    description: 'Vi hjälper dig med skatteplanering och deklaration för bästa resultat.'
   }
 ];
 
@@ -59,7 +59,7 @@ export default function LandingPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <img src="/logo.svg" alt="Mizan Ekonomi" className="h-12 w-auto" />
+            <img src="/logo.png" alt="Mizan Ekonomi" className="h-12 w-auto" />
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -90,7 +90,7 @@ export default function LandingPage() {
                 <Menu className="h-6 w-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px]">
+            <SheetContent side="right">
               <nav className="flex flex-col gap-6 mt-8">
                 {navItems.map((item) => (
                   <motion.a
@@ -117,51 +117,47 @@ export default function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <motion.section
-        id="home"
-        className="relative bg-gray-900 text-white py-24 md:py-32"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="container mx-auto px-4 text-center">
-          <motion.h1
-            className="text-4xl md:text-6xl font-bold mb-6"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            Byt idag – spara pengar!
-          </motion.h1>
-          <motion.p
-            className="text-xl md:text-2xl mb-8 text-gray-300"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4 }}
-          >
-            Vi garanterar ett lägre pris än du har idag. Ta steget mot smartare ekonomi.
-          </motion.p>
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.6 }}
-          >
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-white"
-              onClick={() => scrollToSection('contact')}
+      <section id="home" className="relative bg-[#1a472a] text-white py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <motion.h1
+              className="text-4xl md:text-5xl font-bold mb-6"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.2 }}
             >
-              Kontakta oss
-            </Button>
-          </motion.div>
+              Professionell Redovisning & Rådgivning
+            </motion.h1>
+            <motion.p
+              className="text-lg md:text-xl mb-8 text-gray-200"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.4 }}
+            >
+              Vi hjälper ditt företag att växa med skräddarsydda ekonomitjänster
+            </motion.p>
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.6 }}
+            >
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-white"
+                onClick={() => scrollToSection('contact')}
+              >
+                Kontakta oss
+              </Button>
+            </motion.div>
+          </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* Services Section */}
-      <section id="services" className="py-24 bg-white">
+      <section id="services" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <motion.h2
-            className="text-3xl md:text-4xl font-bold text-center mb-12"
+            className="text-3xl font-bold text-center mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -187,7 +183,7 @@ export default function LandingPage() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-24 bg-gray-50">
+      <section id="about" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
             className="max-w-3xl mx-auto text-center"
@@ -195,40 +191,42 @@ export default function LandingPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Om oss</h2>
+            <h2 className="text-3xl font-bold mb-6">Om Mizan Ekonomi</h2>
             <p className="text-lg text-gray-600">
-              Vi är en digital redovisningsbyrå som kombinerar personlig service med modern teknik
-              för att förenkla din ekonomi. Med vår expertis och engagemang hjälper vi företag att
-              växa och utvecklas genom effektiv ekonomihantering.
+              Vi är en modern redovisningsbyrå som erbjuder skräddarsydda lösningar för ditt företag.
+              Med vår expertis och personliga service hjälper vi dig att fokusera på din verksamhet
+              medan vi tar hand om ekonomin.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 bg-primary text-white">
-        <div className="container mx-auto px-4 text-center">
+      <section id="contact" className="py-20 bg-primary text-white">
+        <div className="container mx-auto px-4">
           <motion.div
+            className="max-w-3xl mx-auto text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Kontakta oss</h2>
+            <h2 className="text-3xl font-bold mb-6">Kontakta oss</h2>
             <p className="text-xl mb-8">
-              Maila oss på{' '}
-              <a href="mailto:info@mizanekonomi.se" className="underline hover:no-underline">
-                info@mizanekonomi.se
-              </a>{' '}
-              eller ring oss
+              Ring eller maila oss för en kostnadsfri konsultation
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button variant="secondary" className="text-primary font-medium">
+            <div className="flex flex-col md:flex-row justify-center gap-4 items-center">
+              <Button variant="secondary" className="w-full md:w-auto">
                 +46 700 97 3993
               </Button>
-              <Button variant="secondary" className="text-primary font-medium">
+              <Button variant="secondary" className="w-full md:w-auto">
                 +46 725 62 5123
               </Button>
             </div>
+            <p className="mt-6">
+              <a href="mailto:info@mizanekonomi.se" className="underline hover:no-underline">
+                info@mizanekonomi.se
+              </a>
+            </p>
           </motion.div>
         </div>
       </section>
