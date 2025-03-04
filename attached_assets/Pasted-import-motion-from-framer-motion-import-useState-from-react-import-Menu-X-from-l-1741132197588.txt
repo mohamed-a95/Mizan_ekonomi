@@ -1,0 +1,97 @@
+import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+
+const navItems = [
+  { label: "Hem", href: "#home" },
+  { label: "Tjänster", href: "#services" },
+  { label: "Om oss", href: "#about" },
+  { label: "Kontakt", href: "#contact" }
+];
+
+export default function LandingPage() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="w-full min-h-screen bg-gray-100 text-gray-900">
+      {/* Header */}
+      <header className="sticky top-0 z-50 bg-white shadow-md">
+        <div className="container mx-auto flex items-center justify-between h-20 px-6 md:px-12">
+          <img src="/logo.png" alt="Mizan Ekonomi" className="h-16" />
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex gap-8">
+            {navItems.map((item) => (
+              <a key={item.href} href={item.href} className="text-lg font-medium hover:text-primary transition-all">
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Mobile Menu */}
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="md:hidden">
+                <Menu className="h-6 w-6" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right">
+              <div className="flex flex-col gap-6 mt-8">
+                {navItems.map((item) => (
+                  <a key={item.href} href={item.href} className="text-lg font-medium hover:text-primary" onClick={() => setIsOpen(false)}>
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <motion.section id="home" className="relative bg-gray-900 text-white py-24 text-center"
+        initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+        <h1 className="text-3xl md:text-5xl font-bold">Byt idag – spara pengar!</h1>
+        <p className="mt-4 text-lg md:text-xl">Vi garanterar ett lägre pris än du har idag. Ta steget mot smartare ekonomi.</p>
+        <button className="mt-6 px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-opacity-90 transition-all">Kontakta oss</button>
+      </motion.section>
+
+      {/* Services Section */}
+      <section id="services" className="py-24 bg-white">
+        <div className="container mx-auto grid md:grid-cols-3 gap-8 px-6 md:px-12">
+          {['Skattehantering och Deklaration', 'Bokföring och Årsredovisning', 'Lönehantering'].map((service, index) => (
+            <motion.div key={index} className="p-6 bg-gray-100 rounded-lg shadow-md text-center"
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.2 }}>
+              <h3 className="text-xl font-semibold">{service}</h3>
+              <p className="mt-2 text-gray-600">Vi hanterar detta smidigt och korrekt.</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-24 bg-gray-50 text-center">
+        <div className="container mx-auto px-6 md:px-12">
+          <h2 className="text-3xl font-bold">Om oss</h2>
+          <p className="mt-4 text-lg text-gray-700 max-w-3xl mx-auto">
+            Vi är en digital redovisningsbyrå som kombinerar personlig service med modern teknik för att förenkla din ekonomi.
+          </p>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-24 bg-primary text-white text-center">
+        <div className="container mx-auto px-6 md:px-12">
+          <h2 className="text-3xl font-bold">Kontakta oss</h2>
+          <p className="mt-4 text-lg">Maila oss på info@mizanekonomi.se eller ring oss.</p>
+          <div className="mt-6 flex flex-wrap justify-center gap-4">
+            <span className="px-4 py-2 bg-white text-primary font-medium rounded-lg">+46 700 97 3993</span>
+            <span className="px-4 py-2 bg-white text-primary font-medium rounded-lg">+46 725 62 5123</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
