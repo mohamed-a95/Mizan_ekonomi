@@ -62,12 +62,12 @@ export default function LandingPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="w-[30%] h-full flex items-center"
+            className="w-[28%] h-full flex items-center"
           >
             <img 
               src="/assets/Mizan ekonomi  (5) (1).png" 
               alt="Mizan Ekonomi" 
-              className="h-20 w-full object-contain"
+              className="h-20 w-full object-contain object-left"
             />
           </motion.div>
 
