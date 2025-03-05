@@ -245,7 +245,7 @@ export default function LandingPage() {
             </div>
 
             {/* Contact Information */}
-            <div className="grid grid-cols-2 gap-8">
+            <div className="flex flex-col space-y-6">
               {/* Email Column */}
               <div>
                 <h3 className="text-lg font-semibold mb-4 text-[rgb(215,175,107)]">E-post</h3>
