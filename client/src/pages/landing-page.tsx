@@ -73,20 +73,20 @@ export default function LandingPage() {
           <div className="absolute left-0 top-0 h-full w-[40%] bg-[rgb(22,84,84)]" />
 
           {/* Logo Container inside green area */}
-          <motion.div
+          <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="w-[40%] h-full flex items-center pl-4 md:pl-8 relative z-10"
+            className="w-[40%] h-full flex items-center relative z-10"
           >
-            <img
-              src="/assets/Mizan ekonomi  (5) (1).png"
-              alt="Mizan Ekonomi"
-              className="h-16 md:h-20 w-full object-contain"
+            <img 
+              src="/assets/Mizan ekonomi  (5) (1).png" 
+              alt="Mizan Ekonomi" 
+              className="h-full w-full object-cover" 
             />
           </motion.div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - only right padding */}
           <nav className="hidden md:flex gap-8 pr-6">
             {navItems.map((item) => (
               <motion.a
@@ -104,7 +104,7 @@ export default function LandingPage() {
             ))}
           </nav>
 
-          {/* Mobile Menu */}
+          {/* Mobile Menu - only right padding */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden mr-6">
