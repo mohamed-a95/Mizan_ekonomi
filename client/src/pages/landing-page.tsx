@@ -233,9 +233,9 @@ export default function LandingPage() {
             <div className="flex flex-col items-center md:items-start">
               <div className="w-[200px] mb-6">
                 <img 
-                  src="/logo.png" 
+                  src="/assets/mizan-logo-white.png" 
                   alt="Mizan Ekonomi" 
-                  className="w-full h-auto brightness-[1.15]"
+                  className="w-full h-auto"
                 />
               </div>
               <p className="text-sm text-gray-300">
