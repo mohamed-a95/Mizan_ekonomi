@@ -226,17 +226,18 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer id="contact" className="bg-[rgb(22,84,84)] py-20">
+      <footer id="contact" className="bg-[#165454] py-20">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold text-center mb-12 text-[rgb(215,175,107)]">Kontakta oss</h2>
           <div className="grid md:grid-cols-3 gap-12">
             {/* Logo and Description */}
             <div className="flex flex-col items-center md:items-start">
-              <div className="w-[200px] mb-6">
+              <div className="w-[200px] mb-6 bg-[rgb(22,84,84)]">
                 <img 
-                  src="/assets/mizan-logo-transparent.png" 
+                  src="/logo.png" 
                   alt="Mizan Ekonomi" 
-                  className="w-full h-auto"
+                  className="w-full h-auto filter brightness-0 invert opacity-80 mix-blend-color-dodge"
+                  style={{ filter: 'brightness(0) saturate(100%) invert(75%) sepia(11%) saturate(1122%) hue-rotate(358deg) brightness(89%) contrast(87%)' }}
                 />
               </div>
               <p className="text-sm text-[rgb(215,175,107)]">
