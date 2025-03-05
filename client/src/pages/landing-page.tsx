@@ -58,17 +58,17 @@ export default function LandingPage() {
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white shadow-md">
         <div className="container mx-auto flex items-center justify-between h-20">
-          {/* Logo Container - 60% width, no padding */}
+          {/* Logo Container - stretches from left edge */}
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="w-[60%] h-full flex items-center"
+            className="w-full md:w-[50%] h-full flex items-center"
           >
             <img 
               src="/assets/Mizan ekonomi  (5) (1).png" 
               alt="Mizan Ekonomi" 
-              className="h-20 w-full object-contain object-left"
+              className="h-16 md:h-20 w-full object-contain object-left"
             />
           </motion.div>
 
