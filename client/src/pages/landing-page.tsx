@@ -119,7 +119,7 @@ export default function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center bg-[#1a472a] overflow-hidden">
+      <section className="relative min-h-[80vh] flex items-center bg-[#0A4744] overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -134,15 +134,15 @@ export default function LandingPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-[rgb(215,175,107)] mb-6">
               Professionell Redovisning & Rådgivning
             </h1>
-            <p className="text-xl text-gray-200 mb-8">
+            <p className="text-xl text-[rgb(215,175,107)] mb-8">
               Vi hjälper ditt företag att växa med skräddarsydda ekonomitjänster och personlig service
             </p>
             <Button 
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-white"
+              className="bg-[rgb(215,175,107)] hover:bg-[rgb(215,175,107)]/90 text-[#0A4744]"
               onClick={() => scrollToSection('contact')}
             >
               Kontakta oss
@@ -228,13 +228,12 @@ export default function LandingPage() {
       {/* Footer */}
       <footer id="contact" className="bg-[#0A4744] py-20">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12 text-[rgb(215,175,107)]">Kontakta oss</h2>
           <div className="grid md:grid-cols-3 gap-12">
             {/* Logo and Description */}
             <div className="flex flex-col items-center md:items-start">
               <div className="w-[200px] mb-6">
                 <img 
-                  src="/assets/mizan-logo-gold.png" 
+                  src="/assets/mizan-ekonomi.png" 
                   alt="Mizan Ekonomi" 
                   className="w-full h-auto"
                 />
