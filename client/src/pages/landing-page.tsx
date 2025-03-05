@@ -226,7 +226,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer id="contact" className="bg-[#1A472A] text-white py-20">
+      <footer id="contact" className="bg-primary text-white py-20">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-12">
             {/* Logo and Description */}
