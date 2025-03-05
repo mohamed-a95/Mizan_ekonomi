@@ -232,11 +232,11 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-3 gap-12">
             {/* Logo and Description */}
             <div className="flex flex-col items-center md:items-start">
-              <div className="w-[200px] mb-6">
+              <div className="w-[200px] mb-6 bg-[rgb(22,84,84)]">
                 <img 
                   src="/assets/mizan-logo-white.png" 
                   alt="Mizan Ekonomi" 
-                  className="w-full h-auto"
+                  className="w-full h-auto mix-blend-luminosity"
                 />
               </div>
               <p className="text-sm text-[rgb(215,175,107)]">
@@ -287,7 +287,7 @@ export default function LandingPage() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 bg-white/10 rounded-full hover:text-[rgb(215,175,107)] transition-colors"
+                      className="p-3 bg-white/10 rounded-full text-[rgb(215,175,107)] hover:bg-[rgb(215,175,107)]/20 transition-colors"
                       aria-label={social.label}
                     >
                       <Icon className="w-5 h-5" />
@@ -296,6 +296,16 @@ export default function LandingPage() {
                 })}
               </div>
             </div>
+          </div>
+          
+          {/* Copyright and Org Number */}
+          <div className="mt-16 pt-8 border-t border-white/10 text-center">
+            <p className="text-[rgb(215,175,107)] text-sm">
+              Org.nr: 559339-7242
+            </p>
+            <p className="text-[rgb(215,175,107)] text-sm mt-2">
+              © {new Date().getFullYear()} Mizan Ekonomi. Alla rättigheter förbehållna.
+            </p>
           </div>
         </div>
       </footer>
