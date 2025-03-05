@@ -106,7 +106,7 @@ export default function LandingPage() {
                   <a 
                     key={item.href} 
                     href={item.href} 
-                    className="text-lg font-medium hover:text-primary"
+                    className="text-lg font-medium hover:text-primary" 
                     onClick={(e) => {
                       e.preventDefault();
                       scrollToSection(item.href.substring(1));
