@@ -232,11 +232,11 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-3 gap-12">
             {/* Logo and Description */}
             <div className="flex flex-col items-center md:items-start">
-              <div className="w-[200px] mb-6 bg-[rgb(22,84,84)]">
+              <div className="w-[200px] mb-6">
                 <img 
-                  src="/assets/mizan-logo-white.png" 
+                  src="/assets/mizan-logo-transparent.png" 
                   alt="Mizan Ekonomi" 
-                  className="w-full h-auto mix-blend-luminosity"
+                  className="w-full h-auto"
                 />
               </div>
               <p className="text-sm text-[rgb(215,175,107)]">
@@ -252,7 +252,7 @@ export default function LandingPage() {
                 <ul className="space-y-2">
                   {contactInfo.emails.map((email, index) => (
                     <li key={index}>
-                      <a href={`mailto:${email}`} className="text-sm text-white hover:text-[rgb(215,175,107)] transition-colors">
+                      <a href={`mailto:${email}`} className="text-sm text-[rgb(215,175,107)] hover:text-[rgb(215,175,107)]/80 transition-colors">
                         {email}
                       </a>
                     </li>
@@ -266,7 +266,7 @@ export default function LandingPage() {
                 <ul className="space-y-2">
                   {contactInfo.phones.map((phone, index) => (
                     <li key={index}>
-                      <a href={`tel:${phone}`} className="text-sm text-white hover:text-[rgb(215,175,107)] transition-colors">
+                      <a href={`tel:${phone}`} className="text-sm text-[rgb(215,175,107)] hover:text-[rgb(215,175,107)]/80 transition-colors">
                         {phone}
                       </a>
                     </li>
@@ -287,7 +287,7 @@ export default function LandingPage() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 bg-white/10 rounded-full text-[rgb(215,175,107)] hover:bg-[rgb(215,175,107)]/20 transition-colors"
+                      className="p-3 bg-[rgb(215,175,107)]/10 rounded-full text-[rgb(215,175,107)] hover:bg-[rgb(215,175,107)]/20 transition-colors"
                       aria-label={social.label}
                     >
                       <Icon className="w-5 h-5" />
@@ -299,7 +299,7 @@ export default function LandingPage() {
           </div>
 
           {/* Copyright and Org Number */}
-          <div className="mt-16 pt-8 border-t border-white/10 text-center">
+          <div className="mt-16 pt-8 border-t border-[rgb(215,175,107)]/20 text-center">
             <p className="text-[rgb(215,175,107)] text-sm">
               Org.nr: 559339-7242
             </p>
