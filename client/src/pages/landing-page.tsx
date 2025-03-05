@@ -52,13 +52,13 @@ export default function LandingPage() {
   return (
     <div className="w-full min-h-screen bg-background">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-white shadow-sm">
-        <div className="container mx-auto flex items-center justify-between h-20 px-4">
+      <header className="sticky top-0 z-50 bg-white shadow-md">
+        <div className="container mx-auto flex items-center justify-between h-20 px-6 md:px-12">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="w-[40%]"
+            className="w-[30%]"
           >
             <img src="/logo.png" alt="Mizan Ekonomi" className="h-20 w-auto object-contain" />
           </motion.div>
@@ -92,7 +92,7 @@ export default function LandingPage() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right">
-              <nav className="flex flex-col gap-6 mt-8">
+              <div className="flex flex-col gap-6 mt-8">
                 {navItems.map((item) => (
                   <motion.a
                     key={item.href}
@@ -111,7 +111,7 @@ export default function LandingPage() {
                     {item.label}
                   </motion.a>
                 ))}
-              </nav>
+              </div>
             </SheetContent>
           </Sheet>
         </div>
