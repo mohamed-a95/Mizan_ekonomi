@@ -57,7 +57,7 @@ export default function LandingPage() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white shadow-md">
-        <div className="container mx-auto flex items-center justify-between h-[5rem] px-6 md:px-12">
+        <div className="container mx-auto flex items-center justify-between h-20 px-6 md:px-12">
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -67,7 +67,7 @@ export default function LandingPage() {
             <img 
               src="/logo.png" 
               alt="Mizan Ekonomi" 
-              className="h-[5rem] w-full object-contain"
+              className="h-20 w-full object-contain"
             />
           </motion.div>
 
@@ -185,17 +185,42 @@ export default function LandingPage() {
       <section id="about" className="py-24 bg-gray-50">
         <div className="container mx-auto px-6">
           <motion.div
-            className="max-w-3xl mx-auto text-center"
+            className="max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Om Mizan Ekonomi</h2>
-            <p className="text-lg text-gray-600">
-              Vi är en modern redovisningsbyrå som erbjuder skräddarsydda lösningar för ditt företag.
-              Med vår expertis och personliga service hjälper vi dig att fokusera på din verksamhet
-              medan vi tar hand om ekonomin.
-            </p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Om oss</h2>
+            <div className="bg-white rounded-lg p-8 shadow-md">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Vi är en digital redovisningsbyrå som kombinerar personlig service med modern teknik. 
+                Med skräddarsydda lösningar hanterar vi bokföring, löner, bokslut och deklarationer både 
+                noggrant och effektivt. Vårt mål är att förenkla ekonomin och skapa trygghet, så du kan 
+                fokusera på tillväxt.
+              </p>
+              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="flex items-center gap-3">
+                  <span className="text-primary">✓</span>
+                  <span>Skräddarsydda lösningar</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-primary">✓</span>
+                  <span>Digital & effektiv hantering</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-primary">✓</span>
+                  <span>Personlig service</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-primary">✓</span>
+                  <span>Trygghet & noggrannhet</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-primary">✓</span>
+                  <span>Tidsbesparande & fokus</span>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -206,7 +231,13 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-3 gap-12">
             {/* Logo and Description */}
             <div className="flex flex-col items-center md:items-start">
-              <img src="/logo.png" alt="Mizan Ekonomi" className="h-16 w-auto mb-4" />
+              <div className="w-[200px] mb-6">
+                <img 
+                  src="/logo.png" 
+                  alt="Mizan Ekonomi" 
+                  className="w-full h-auto"
+                />
+              </div>
               <p className="text-sm text-gray-300">
                 Din partner för professionell ekonomihantering
               </p>
