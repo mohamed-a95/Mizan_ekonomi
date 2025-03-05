@@ -226,7 +226,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer id="contact" className="bg-[#1a472a] text-white py-20">
+      <footer id="contact" className="bg-[#1A472A] text-white py-20">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-12">
             {/* Logo and Description */}
@@ -235,7 +235,7 @@ export default function LandingPage() {
                 <img 
                   src="/logo.png" 
                   alt="Mizan Ekonomi" 
-                  className="w-full h-auto"
+                  className="w-full h-auto brightness-[1.15]"
                 />
               </div>
               <p className="text-sm text-gray-300">
