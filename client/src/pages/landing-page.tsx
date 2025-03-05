@@ -226,8 +226,9 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer id="contact" className="bg-primary text-white py-20">
+      <footer id="contact" className="bg-[rgb(22,84,84)] py-20">
         <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center mb-12 text-[rgb(215,175,107)]">Kontakta oss</h2>
           <div className="grid md:grid-cols-3 gap-12">
             {/* Logo and Description */}
             <div className="flex flex-col items-center md:items-start">
@@ -238,7 +239,7 @@ export default function LandingPage() {
                   className="w-full h-auto"
                 />
               </div>
-              <p className="text-sm text-gray-300">
+              <p className="text-sm text-[rgb(215,175,107)]">
                 Din partner för professionell ekonomihantering
               </p>
             </div>
@@ -247,11 +248,11 @@ export default function LandingPage() {
             <div className="grid grid-cols-2 gap-8">
               {/* Email Column */}
               <div>
-                <h3 className="text-lg font-semibold mb-4">E-post</h3>
+                <h3 className="text-lg font-semibold mb-4 text-[rgb(215,175,107)]">E-post</h3>
                 <ul className="space-y-2">
                   {contactInfo.emails.map((email, index) => (
                     <li key={index}>
-                      <a href={`mailto:${email}`} className="text-sm hover:text-primary transition-colors">
+                      <a href={`mailto:${email}`} className="text-sm text-white hover:text-[rgb(215,175,107)] transition-colors">
                         {email}
                       </a>
                     </li>
@@ -261,11 +262,11 @@ export default function LandingPage() {
 
               {/* Phone Column */}
               <div>
-                <h3 className="text-lg font-semibold mb-4">Telefon</h3>
+                <h3 className="text-lg font-semibold mb-4 text-[rgb(215,175,107)]">Telefon</h3>
                 <ul className="space-y-2">
                   {contactInfo.phones.map((phone, index) => (
                     <li key={index}>
-                      <a href={`tel:${phone}`} className="text-sm hover:text-primary transition-colors">
+                      <a href={`tel:${phone}`} className="text-sm text-white hover:text-[rgb(215,175,107)] transition-colors">
                         {phone}
                       </a>
                     </li>
@@ -276,7 +277,7 @@ export default function LandingPage() {
 
             {/* Social Links */}
             <div>
-              <h3 className="text-lg font-semibold mb-4">Följ oss</h3>
+              <h3 className="text-lg font-semibold mb-4 text-[rgb(215,175,107)]">Följ oss</h3>
               <div className="flex gap-4">
                 {socialLinks.map((social, index) => {
                   const Icon = social.icon;
@@ -286,7 +287,7 @@ export default function LandingPage() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 bg-white/10 rounded-full hover:bg-primary transition-colors"
+                      className="p-3 bg-white/10 rounded-full hover:text-[rgb(215,175,107)] transition-colors"
                       aria-label={social.label}
                     >
                       <Icon className="w-5 h-5" />
