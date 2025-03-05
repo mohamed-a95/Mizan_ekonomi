@@ -67,18 +67,21 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-[rgb(22,84,84)] shadow-md">
-        <div className="container mx-auto flex items-center justify-between h-20">
-          {/* Logo Container - 40% width with left padding */}
-          <motion.div 
+      <header className="sticky top-0 z-50 shadow-md">
+        <div className="container mx-auto flex items-center justify-between h-20 relative">
+          {/* Green background container - 40% width */}
+          <div className="absolute left-0 top-0 h-full w-[40%] bg-[rgb(22,84,84)]" />
+
+          {/* Logo Container inside green area */}
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="w-full md:w-[40%] h-full flex items-center pl-4 md:pl-8"
+            className="w-[40%] h-full flex items-center pl-4 md:pl-8 relative z-10"
           >
-            <img 
-              src="/assets/Mizan ekonomi  (5) (1).png" 
-              alt="Mizan Ekonomi" 
+            <img
+              src="/assets/Mizan ekonomi  (5) (1).png"
+              alt="Mizan Ekonomi"
               className="h-16 md:h-20 w-full object-contain"
             />
           </motion.div>
@@ -89,7 +92,7 @@ export default function LandingPage() {
               <motion.a
                 key={item.href}
                 href={item.href}
-                className="text-lg font-medium text-[rgb(215,175,107)] hover:text-[rgb(215,175,107)]/80 transition-colors"
+                className="text-lg font-medium text-gray-700 hover:text-primary transition-colors"
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection(item.href.substring(1));
@@ -104,7 +107,7 @@ export default function LandingPage() {
           {/* Mobile Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden mr-6 text-[rgb(215,175,107)]">
+              <Button variant="ghost" size="icon" className="md:hidden mr-6">
                 <Menu className="h-6 w-6" />
               </Button>
             </SheetTrigger>
