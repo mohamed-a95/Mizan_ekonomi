@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { useState, useEffect } from 'react';
 import { scrollToSection } from '@/lib/scroll-to-section';
 
 const navItems = [
@@ -50,37 +50,18 @@ export default function LandingPage() {
   }, []);
 
   return (
-    <div className="w-full min-h-screen bg-background">
+    <div className="w-full min-h-screen bg-gray-100 text-gray-900">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white shadow-md">
-        <div className="container mx-auto flex items-center justify-between h-20 px-6 md:px-12">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="w-[30%]"
-          >
-            <img src="/logo.png" alt="Mizan Ekonomi" className="h-20 w-auto object-contain" />
-          </motion.div>
+        <div className="container mx-auto flex items-center justify-between h-[5rem] px-6 md:px-12">
+          <img src="/logo.png" alt="Mizan Ekonomi" className="h-[5rem] w-[30%] object-contain" />
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex gap-8">
             {navItems.map((item) => (
-              <motion.a
-                key={item.href}
-                href={item.href}
-                className={`text-lg font-medium transition-colors hover:text-primary ${
-                  activeSection === item.href.substring(1) ? 'text-primary' : 'text-gray-600'
-                }`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection(item.href.substring(1));
-                }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
+              <a key={item.href} href={item.href} className="text-lg font-medium hover:text-primary transition-all">
                 {item.label}
-              </motion.a>
+              </a>
             ))}
           </nav>
 
@@ -94,22 +75,9 @@ export default function LandingPage() {
             <SheetContent side="right">
               <div className="flex flex-col gap-6 mt-8">
                 {navItems.map((item) => (
-                  <motion.a
-                    key={item.href}
-                    href={item.href}
-                    className={`text-lg font-medium transition-colors hover:text-primary ${
-                      activeSection === item.href.substring(1) ? 'text-primary' : 'text-gray-600'
-                    }`}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection(item.href.substring(1));
-                      setIsOpen(false);
-                    }}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
+                  <a key={item.href} href={item.href} className="text-lg font-medium hover:text-primary" onClick={() => setIsOpen(false)}>
                     {item.label}
-                  </motion.a>
+                  </a>
                 ))}
               </div>
             </SheetContent>
