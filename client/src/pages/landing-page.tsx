@@ -297,7 +297,7 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
-          
+
           {/* Copyright and Org Number */}
           <div className="mt-16 pt-8 border-t border-white/10 text-center">
             <p className="text-[rgb(215,175,107)] text-sm">
