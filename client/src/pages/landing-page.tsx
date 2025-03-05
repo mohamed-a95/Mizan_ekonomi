@@ -4,6 +4,7 @@ import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { scrollToSection } from '@/lib/scroll-to-section';
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 
 const navItems = [
   { label: "Hem", href: "#home" },
@@ -25,6 +26,25 @@ const services = [
     title: 'Skatt & Deklaration',
     description: 'Vi hjälper dig med skatteplanering och deklaration för bästa resultat.'
   }
+];
+
+const contactInfo = {
+  emails: [
+    'info@mizanekonomi.se',
+    'redovisning@mizanekonomi.se',
+    'skatt@mizanekonomi.se'
+  ],
+  phones: [
+    '+46 700 97 3993',
+    '+46 725 62 5123',
+    '+46 737 89 4456'
+  ]
+};
+
+const socialLinks = [
+  { icon: FaFacebookF, href: "https://facebook.com/mizanekonomi", label: "Facebook" },
+  { icon: FaInstagram, href: "https://instagram.com/mizanekonomi", label: "Instagram" },
+  { icon: FaLinkedinIn, href: "https://linkedin.com/company/mizanekonomi", label: "LinkedIn" }
 ];
 
 export default function LandingPage() {
@@ -54,12 +74,20 @@ export default function LandingPage() {
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white shadow-md">
         <div className="container mx-auto flex items-center justify-between h-[5rem] px-6 md:px-12">
-          <img src="/logo.png" alt="Mizan Ekonomi" className="h-[5rem] w-[30%] object-contain" />
+          <img src="/logo.png" alt="Mizan Ekonomi" className="h-[5rem] w-[40%] object-contain" />
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex gap-8">
             {navItems.map((item) => (
-              <a key={item.href} href={item.href} className="text-lg font-medium hover:text-primary transition-all">
+              <a 
+                key={item.href} 
+                href={item.href} 
+                className="text-lg font-medium hover:text-primary transition-all"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(item.href.substring(1));
+                }}
+              >
                 {item.label}
               </a>
             ))}
@@ -75,7 +103,16 @@ export default function LandingPage() {
             <SheetContent side="right">
               <div className="flex flex-col gap-6 mt-8">
                 {navItems.map((item) => (
-                  <a key={item.href} href={item.href} className="text-lg font-medium hover:text-primary" onClick={() => setIsOpen(false)}>
+                  <a 
+                    key={item.href} 
+                    href={item.href} 
+                    className="text-lg font-medium hover:text-primary"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(item.href.substring(1));
+                      setIsOpen(false);
+                    }}
+                  >
                     {item.label}
                   </a>
                 ))}
@@ -85,10 +122,18 @@ export default function LandingPage() {
         </div>
       </header>
 
-      {/* Main Content Sections */}
       {/* Hero Section */}
-      <section id="home" className="relative bg-[#1a472a] text-white py-20">
-        <div className="container mx-auto px-4">
+      <section 
+        id="home" 
+        className="relative bg-[#1a472a] text-white py-24 overflow-hidden"
+        style={{
+          backgroundImage: 'url(/hero-bg.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="absolute inset-0 bg-[#1a472a]/80 backdrop-blur-sm" />
+        <div className="container mx-auto px-4 relative">
           <div className="max-w-3xl mx-auto text-center">
             <motion.h1
               className="text-4xl md:text-5xl font-bold mb-6"
@@ -171,11 +216,11 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Footer/Contact Section */}
+      {/* Footer */}
       <footer id="contact" className="bg-[#1a472a] text-white py-16">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Logo Column */}
+          <div className="grid md:grid-cols-3 gap-12">
+            {/* Logo and Description */}
             <div className="flex flex-col items-center md:items-start">
               <img src="/logo.png" alt="Mizan Ekonomi" className="h-16 w-auto mb-4" />
               <p className="text-sm text-gray-300">
@@ -183,29 +228,46 @@ export default function LandingPage() {
               </p>
             </div>
 
-            {/* Contact Info Column */}
-            <div className="text-center md:text-left">
-              <h3 className="text-xl font-semibold mb-4">Kontakta oss</h3>
-              <div className="space-y-2">
-                <p>Tel: +46 700 97 3993</p>
-                <p>Tel: +46 725 62 5123</p>
-                <p>
-                  <a href="mailto:info@mizanekonomi.se" className="hover:underline">
-                    info@mizanekonomi.se
-                  </a>
-                </p>
+            {/* Contact Information */}
+            <div className="grid grid-cols-2 gap-8">
+              {/* Email Column */}
+              <div>
+                <h3 className="text-lg font-semibold mb-4">E-post</h3>
+                <ul className="space-y-2">
+                  {contactInfo.emails.map((email, index) => (
+                    <li key={index}>
+                      <a href={`mailto:${email}`} className="text-sm hover:text-primary transition-colors">
+                        {email}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Phone Column */}
+              <div>
+                <h3 className="text-lg font-semibold mb-4">Telefon</h3>
+                <ul className="space-y-2">
+                  {contactInfo.phones.map((phone, index) => (
+                    <li key={index}>
+                      <a href={`tel:${phone}`} className="text-sm hover:text-primary transition-colors">
+                        {phone}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
 
-            {/* Navigation Column */}
-            <div className="text-center md:text-left">
-              <h3 className="text-xl font-semibold mb-4">Snabblänkar</h3>
-              <nav className="flex flex-col gap-2">
+            {/* Navigation and Social Links */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Snabblänkar</h3>
+              <nav className="flex flex-col gap-2 mb-8">
                 {navItems.map((item) => (
                   <a
                     key={item.href}
                     href={item.href}
-                    className="hover:text-gray-300 transition-colors"
+                    className="text-sm hover:text-primary transition-colors"
                     onClick={(e) => {
                       e.preventDefault();
                       scrollToSection(item.href.substring(1));
@@ -215,6 +277,25 @@ export default function LandingPage() {
                   </a>
                 ))}
               </nav>
+
+              {/* Social Media Links */}
+              <div className="flex gap-4">
+                {socialLinks.map((social, index) => {
+                  const Icon = social.icon;
+                  return (
+                    <a
+                      key={index}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-white/10 rounded-full hover:bg-primary transition-colors"
+                      aria-label={social.label}
+                    >
+                      <Icon className="w-5 h-5" />
+                    </a>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
