@@ -65,9 +65,9 @@ export default function LandingPage() {
             className="w-[40%] h-full flex items-center"
           >
             <img 
-              src="/assets/mizan-ekonomi.png" 
+              src="/assets/Mizan ekonomi  (5) (1).png" 
               alt="Mizan Ekonomi" 
-              className="h-20 w-full object-contain"
+              className="h-16 w-full object-contain"
             />
           </motion.div>
 
@@ -226,15 +226,15 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer id="contact" className="bg-[#0A4744] text-white py-20">
+      <footer id="contact" className="bg-[#0A4744] text-[rgb(215,175,107)] py-20">
         <div className="container mx-auto px-6 md:px-12">
-          <h2 className="text-3xl font-bold">Kontakta oss</h2>
-          <p className="mt-4 text-lg">Nå oss via mejl eller telefon:</p>
+          <h2 className="text-3xl font-bold text-[rgb(215,175,107)]">Kontakta oss</h2>
+          <p className="mt-4 text-lg text-[rgb(215,175,107)]">Nå oss via mejl eller telefon:</p>
 
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
             {/* Email Column */}
             <div>
-              <h3 className="text-lg font-semibold mb-4">E-post</h3>
+              <h3 className="text-lg font-semibold mb-4 text-[rgb(215,175,107)]">E-post</h3>
               <ul className="space-y-2">
                 {contactInfo.emails.map((email, index) => (
                   <li key={index}>
@@ -248,7 +248,7 @@ export default function LandingPage() {
 
             {/* Phone Column */}
             <div>
-              <h3 className="text-lg font-semibold mb-4">Telefon</h3>
+              <h3 className="text-lg font-semibold mb-4 text-[rgb(215,175,107)]">Telefon</h3>
               <ul className="space-y-2">
                 {contactInfo.phones.map((phone, index) => (
                   <li key={index}>
@@ -263,7 +263,7 @@ export default function LandingPage() {
 
           {/* Social Links */}
           <div className="mt-12">
-            <h3 className="text-lg font-semibold mb-4">Följ oss</h3>
+            <h3 className="text-lg font-semibold mb-4 text-[rgb(215,175,107)]">Följ oss</h3>
             <div className="flex gap-4">
               {socialLinks.map((social, index) => {
                 const Icon = social.icon;
