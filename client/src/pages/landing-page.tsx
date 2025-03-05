@@ -58,8 +58,9 @@ export default function LandingPage() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
+            className="w-[40%]"
           >
-            <img src="/logo.png" alt="Mizan Ekonomi" className="h-12 w-auto" />
+            <img src="/logo.png" alt="Mizan Ekonomi" className="h-20 w-auto object-contain" />
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -116,6 +117,7 @@ export default function LandingPage() {
         </div>
       </header>
 
+      {/* Main Content Sections */}
       {/* Hero Section */}
       <section id="home" className="relative bg-[#1a472a] text-white py-20">
         <div className="container mx-auto px-4">
@@ -201,35 +203,54 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-primary text-white">
+      {/* Footer/Contact Section */}
+      <footer id="contact" className="bg-[#1a472a] text-white py-16">
         <div className="container mx-auto px-4">
-          <motion.div
-            className="max-w-3xl mx-auto text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl font-bold mb-6">Kontakta oss</h2>
-            <p className="text-xl mb-8">
-              Ring eller maila oss för en kostnadsfri konsultation
-            </p>
-            <div className="flex flex-col md:flex-row justify-center gap-4 items-center">
-              <Button variant="secondary" className="w-full md:w-auto">
-                +46 700 97 3993
-              </Button>
-              <Button variant="secondary" className="w-full md:w-auto">
-                +46 725 62 5123
-              </Button>
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Logo Column */}
+            <div className="flex flex-col items-center md:items-start">
+              <img src="/logo.png" alt="Mizan Ekonomi" className="h-16 w-auto mb-4" />
+              <p className="text-sm text-gray-300">
+                Din partner för professionell ekonomihantering
+              </p>
             </div>
-            <p className="mt-6">
-              <a href="mailto:info@mizanekonomi.se" className="underline hover:no-underline">
-                info@mizanekonomi.se
-              </a>
-            </p>
-          </motion.div>
+
+            {/* Contact Info Column */}
+            <div className="text-center md:text-left">
+              <h3 className="text-xl font-semibold mb-4">Kontakta oss</h3>
+              <div className="space-y-2">
+                <p>Tel: +46 700 97 3993</p>
+                <p>Tel: +46 725 62 5123</p>
+                <p>
+                  <a href="mailto:info@mizanekonomi.se" className="hover:underline">
+                    info@mizanekonomi.se
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            {/* Navigation Column */}
+            <div className="text-center md:text-left">
+              <h3 className="text-xl font-semibold mb-4">Snabblänkar</h3>
+              <nav className="flex flex-col gap-2">
+                {navItems.map((item) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    className="hover:text-gray-300 transition-colors"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(item.href.substring(1));
+                    }}
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </nav>
+            </div>
+          </div>
         </div>
-      </section>
+      </footer>
     </div>
   );
 }
