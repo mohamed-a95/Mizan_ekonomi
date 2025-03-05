@@ -245,33 +245,35 @@ export default function LandingPage() {
             </div>
 
             {/* Contact Information */}
-            <div className="flex flex-col space-y-6">
-              {/* Email Column */}
-              <div>
-                <h3 className="text-lg font-semibold mb-4 text-[rgb(215,175,107)]">E-post</h3>
-                <ul className="space-y-2">
-                  {contactInfo.emails.map((email, index) => (
-                    <li key={index}>
-                      <a href={`mailto:${email}`} className="text-sm text-[rgb(215,175,107)] hover:text-[rgb(215,175,107)]/80 transition-colors">
-                        {email}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Email Column */}
+                <div>
+                  <h3 className="text-lg font-semibold mb-4 text-[rgb(215,175,107)]">E-post</h3>
+                  <ul className="space-y-2">
+                    {contactInfo.emails.map((email, index) => (
+                      <li key={index}>
+                        <a href={`mailto:${email}`} className="text-sm text-[rgb(215,175,107)] hover:text-[rgb(215,175,107)]/80 transition-colors">
+                          {email}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-              {/* Phone Column */}
-              <div>
-                <h3 className="text-lg font-semibold mb-4 text-[rgb(215,175,107)]">Telefon</h3>
-                <ul className="space-y-2">
-                  {contactInfo.phones.map((phone, index) => (
-                    <li key={index}>
-                      <a href={`tel:${phone}`} className="text-sm text-[rgb(215,175,107)] hover:text-[rgb(215,175,107)]/80 transition-colors">
-                        {phone}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+                {/* Phone Column */}
+                <div>
+                  <h3 className="text-lg font-semibold mb-4 text-[rgb(215,175,107)]">Telefon</h3>
+                  <ul className="space-y-2">
+                    {contactInfo.phones.map((phone, index) => (
+                      <li key={index}>
+                        <a href={`tel:${phone}`} className="text-sm text-[rgb(215,175,107)] hover:text-[rgb(215,175,107)]/80 transition-colors">
+                          {phone}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
 
