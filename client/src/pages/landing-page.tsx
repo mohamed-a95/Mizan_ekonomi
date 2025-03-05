@@ -62,7 +62,7 @@ export default function LandingPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="w-[28%] h-full flex items-center"
+            className="w-[30%] h-full flex items-start"
           >
             <img 
               src="/assets/Mizan ekonomi  (5) (1).png" 
@@ -140,13 +140,22 @@ export default function LandingPage() {
             <p className="text-xl text-[rgb(215,175,107)] mb-8">
               Vi hjälper ditt företag att växa med skräddarsydda ekonomitjänster och personlig service
             </p>
-            <Button 
-              size="lg"
-              className="bg-[rgb(215,175,107)] hover:bg-[rgb(215,175,107)]/90 text-[#0A4744]"
-              onClick={() => scrollToSection('contact')}
-            >
-              Kontakta oss
-            </Button>
+            <div className="flex gap-4">
+              <Button 
+                size="lg"
+                className="bg-[rgb(215,175,107)] hover:bg-[rgb(215,175,107)]/90 text-[#0A4744]"
+                onClick={() => scrollToSection('services')}
+              >
+                Våra tjänster
+              </Button>
+              <Button 
+                size="lg"
+                className="bg-[rgb(215,175,107)] hover:bg-[rgb(215,175,107)]/90 text-[#0A4744]"
+                onClick={() => scrollToSection('contact')}
+              >
+                Kontakta oss
+              </Button>
+            </div>
           </motion.div>
         </div>
       </section>
