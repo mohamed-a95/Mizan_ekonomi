@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Menu } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { scrollToSection } from '@/lib/scroll-to-section';
@@ -65,7 +65,7 @@ export default function LandingPage() {
             className="w-[40%] h-full flex items-center"
           >
             <img 
-              src="/logo.png" 
+              src="/assets/mizan-ekonomi.png" 
               alt="Mizan Ekonomi" 
               className="h-20 w-full object-contain"
             />
@@ -119,7 +119,7 @@ export default function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center bg-[#0A4744] overflow-hidden">
+      <section id="home" className="relative min-h-[80vh] flex items-center bg-[#0A4744] overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -226,76 +226,60 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer id="contact" className="bg-[#0A4744] py-20">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-12">
-            {/* Logo and Description */}
-            <div className="flex flex-col items-center md:items-start">
-              <div className="w-[200px] mb-6">
-                <img 
-                  src="/assets/mizan-ekonomi.png" 
-                  alt="Mizan Ekonomi" 
-                  className="w-full h-auto"
-                />
-              </div>
-              <p className="text-sm text-[rgb(215,175,107)]">
-                Din partner för professionell ekonomihantering
-              </p>
-            </div>
+      <footer id="contact" className="bg-[#0A4744] text-white py-20">
+        <div className="container mx-auto px-6 md:px-12">
+          <h2 className="text-3xl font-bold">Kontakta oss</h2>
+          <p className="mt-4 text-lg">Nå oss via mejl eller telefon:</p>
 
-            {/* Contact Information */}
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+            {/* Email Column */}
             <div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {/* Email Column */}
-                <div>
-                  <h3 className="text-lg font-semibold mb-4 text-[rgb(215,175,107)]">E-post</h3>
-                  <ul className="space-y-2">
-                    {contactInfo.emails.map((email, index) => (
-                      <li key={index}>
-                        <a href={`mailto:${email}`} className="text-sm text-[rgb(215,175,107)] hover:text-[rgb(215,175,107)]/80 transition-colors">
-                          {email}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Phone Column */}
-                <div>
-                  <h3 className="text-lg font-semibold mb-4 text-[rgb(215,175,107)]">Telefon</h3>
-                  <ul className="space-y-2">
-                    {contactInfo.phones.map((phone, index) => (
-                      <li key={index}>
-                        <a href={`tel:${phone}`} className="text-sm text-[rgb(215,175,107)] hover:text-[rgb(215,175,107)]/80 transition-colors">
-                          {phone}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Social Links */}
-            <div>
-              <h3 className="text-lg font-semibold mb-4 text-[rgb(215,175,107)]">Följ oss</h3>
-              <div className="flex gap-4">
-                {socialLinks.map((social, index) => {
-                  const Icon = social.icon;
-                  return (
-                    <a
-                      key={index}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-3 bg-[rgb(215,175,107)]/10 rounded-full text-[rgb(215,175,107)] hover:bg-[rgb(215,175,107)]/20 transition-colors"
-                      aria-label={social.label}
-                    >
-                      <Icon className="w-5 h-5" />
+              <h3 className="text-lg font-semibold mb-4">E-post</h3>
+              <ul className="space-y-2">
+                {contactInfo.emails.map((email, index) => (
+                  <li key={index}>
+                    <a href={`mailto:${email}`} className="text-sm text-[rgb(215,175,107)] hover:text-[rgb(215,175,107)]/80 transition-colors">
+                      {email}
                     </a>
-                  );
-                })}
-              </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Phone Column */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Telefon</h3>
+              <ul className="space-y-2">
+                {contactInfo.phones.map((phone, index) => (
+                  <li key={index}>
+                    <a href={`tel:${phone}`} className="text-sm text-[rgb(215,175,107)] hover:text-[rgb(215,175,107)]/80 transition-colors">
+                      {phone}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Social Links */}
+          <div className="mt-12">
+            <h3 className="text-lg font-semibold mb-4">Följ oss</h3>
+            <div className="flex gap-4">
+              {socialLinks.map((social, index) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-3 bg-[rgb(215,175,107)]/10 rounded-full text-[rgb(215,175,107)] hover:bg-[rgb(215,175,107)]/20 transition-colors"
+                    aria-label={social.label}
+                  >
+                    <Icon className="w-5 h-5" />
+                  </a>
+                );
+              })}
             </div>
           </div>
 
