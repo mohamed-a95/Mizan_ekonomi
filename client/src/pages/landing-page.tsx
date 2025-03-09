@@ -82,9 +82,9 @@ export default function LandingPage() {
             className="flex-1 h-full flex items-center"
           >
             <img
-              src="/assets/Mizan ekonomi  (5) (1).png"
+              src="assets/WhatsApp Image 2025-03-07 at 03.19.48.jpeg "
               alt="Mizan Ekonomi"
-              className="h-full w-auto min-w-[6rem] md:min-w-[9rem]  object-left flex-shrink-0"
+              className="h-full w-auto min-w-[6rem] md:min-w-[8rem]  object-left flex-shrink-0"
             />
           </motion.div>
 
