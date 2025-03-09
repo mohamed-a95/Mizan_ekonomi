@@ -35,12 +35,11 @@ export default defineConfig({
   // Sätt "client" som root (där index.html finns)
   root: path.resolve(__dirname, "client"),
   build: {
-    // Byggresultatet hamnar i dist/public
-    outDir: path.resolve(__dirname, "dist/public"),
+    outDir: path.resolve(__dirname, "dist"),
     emptyOutDir: true,
-    // Se till att index.html inkluderas i builden
     rollupOptions: {
       input: path.resolve(__dirname, "client", "index.html"),
     },
   },
+  
 });
