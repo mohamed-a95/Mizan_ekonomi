@@ -84,7 +84,7 @@ export default function LandingPage() {
             <img
               src="/assets/Mizan ekonomi  (5) (1).png"
               alt="Mizan Ekonomi"
-              className="h-full w-auto min-w-[8rem] md:min-w-[11rem]  object-left flex-shrink-0"
+              className="h-full w-auto min-w-[6rem] md:min-w-[9rem]  object-left flex-shrink-0"
             />
           </motion.div>
 
