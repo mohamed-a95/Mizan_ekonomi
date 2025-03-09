@@ -72,7 +72,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="sticky h-24 top-0 z-50 bg-white shadow-md">
+      <header className="sticky h-24 top-0 z-50 bg-[rgba(247,247,247,1)] shadow-md">
         <div className="flex items-center justify-between w-full h-full pr-4 md:pr-8">
           {/* Logo-container */}
           <motion.div
@@ -94,7 +94,7 @@ export default function LandingPage() {
               <motion.a
                 key={item.href}
                 href={item.href}
-                className="text-lg font-medium text-gray-700 hover:text-primary transition-colors"
+                className="text-lg font-medium text-gray-800 hover:text-primary transition-colors"
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection(item.href.substring(1));
