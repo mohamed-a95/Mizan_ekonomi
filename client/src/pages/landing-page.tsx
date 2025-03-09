@@ -5,6 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { scrollToSection } from "@/lib/scroll-to-section";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import {
+  FaFileInvoiceDollar,
+  FaBookOpen,
+  FaMoneyCheckAlt,
+} from "react-icons/fa";
 
 const navItems = [
   { label: "Hem", href: "#home" },
@@ -15,22 +20,22 @@ const navItems = [
 
 const services = [
   {
-    title: "Redovisning",
+    title: "Skattehantering och Deklaration",
     description:
-      "Vi tar hand om din löpande bokföring, bokslut och årsredovisning.",
-    icon: "📊",
+      "Vi hjälper företag att hantera skatter och deklarationer smidigt och korrekt.",
+    icon: <FaFileInvoiceDollar className="text-4xl mb-4" />,
+  },
+  {
+    title: "Bokföring och Årsredovisning",
+    description:
+      "Vi säkerställer korrekt bokföring och årsredovisning enligt gällande regler.",
+    icon: <FaBookOpen className="text-4xl mb-4" />,
   },
   {
     title: "Lönehantering",
     description:
-      "Vi hanterar löner, arbetsgivardeklarationer och kontrolluppgifter.",
-    icon: "💼",
-  },
-  {
-    title: "Skatt & Deklaration",
-    description:
-      "Vi hjälper dig med skatteplanering och deklaration för bästa resultat.",
-    icon: "📋",
+      "Vi hanterar löneutbetalningar och rapportering med precision och effektivitet.",
+    icon: <FaMoneyCheckAlt className="text-4xl mb-4" />,
   },
 ];
 
@@ -67,23 +72,23 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="sticky top-0 z-50 shadow-md bg-white">
-        <div className="container mx-auto flex items-center justify-between h-20 relative">
-          {/* Logo Container */}
-          <motion.div 
+      <header className="sticky h-24 top-0 z-50 bg-white shadow-md">
+        <div className="flex items-center justify-between w-full h-full pr-4 md:pr-8">
+          {/* Logo-container */}
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="w-[40%] h-full flex items-center justify-start relative z-10 pl-1"
+            className="flex-1 h-full flex items-center"
           >
-            <img 
-              src="/assets/Mizan ekonomi  (5) (1).png" 
-              alt="Mizan Ekonomi" 
-              className="h-[65%] w-full object-cover" 
+            <img
+              src="/assets/Mizan ekonomi  (5) (1).png"
+              alt="Mizan Ekonomi"
+              className="h-full w-auto min-w-[8rem] md:min-w-[12rem]  object-left flex-shrink-0"
             />
           </motion.div>
 
-          {/* Desktop Navigation - only right padding */}
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex gap-8 pr-6">
             {navItems.map((item) => (
               <motion.a
@@ -101,7 +106,7 @@ export default function LandingPage() {
             ))}
           </nav>
 
-          {/* Mobile Menu - only right padding */}
+          {/* Mobile Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden mr-6">
