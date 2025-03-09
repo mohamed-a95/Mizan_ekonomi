@@ -72,7 +72,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="sticky h-28 top-0 z-50 bg-white shadow-md">
+      <header className="sticky h-24 top-0 z-50 bg-white shadow-md">
         <div className="flex items-center justify-between w-full h-full pr-4 md:pr-8">
           {/* Logo-container */}
           <motion.div
