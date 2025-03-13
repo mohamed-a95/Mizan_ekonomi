@@ -419,7 +419,7 @@ export default function LandingPage() {
                   </div>
                   <p className="pl-7 text-sm">
                     Mizan Ekonomi AB <br />
-                    Majorsvägen 55 <br />
+                    Hanstavägen 55 <br />
                     164 53 Kista
                   </p>
                 </div>
