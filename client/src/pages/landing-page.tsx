@@ -448,8 +448,8 @@ export default function LandingPage() {
                   Org.nr: 559339-7242
                 </p>
                 <p className="text-[#0A4744] text-sm mt-2 font-semibold">
-                  © {new Date().getFullYear()} Mizan Ekonomi. Alla rättigheter
-                  förbehållna.
+                  © {new Date().getFullYear()} Mizan Ekonomi AB. Alla
+                  rättigheter förbehållna.
                 </p>
               </div>
             </div>
