@@ -263,7 +263,7 @@ export default function LandingPage() {
           <section id="about" className="py-24 bg-white text-center">
             <div className="container mx-auto px-6">
               <motion.h2
-                className="text-3xl md:text-4xl font-bold text-[#0A4744] mb-8"
+                className="text-3xl md:text-4xl font-bold text-[rgb(215,175,107)] mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
