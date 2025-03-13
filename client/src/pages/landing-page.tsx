@@ -12,10 +12,11 @@ import {
   FaMoneyCheckAlt,
 } from "react-icons/fa";
 
-// Se till att alla paths stämmer i ditt projekt:
+// Se till att alla paths stämmer i ditt projekt
 import imgHero from "/assets/photo-1520607162513-77705c0f0d4a.jpeg";
 import imgServices from "/assets/photo-1454165804606-c3d57bc86b40.avif";
 import imgBigLogo from "/assets/Mizan ekonomi  (5) (2).png";
+import imgAboutUs from "/assets/photo-1554469384-e58fac16e23a.avif";
 
 const navItems = [
   { label: "Hem", href: "#home" },
@@ -93,7 +94,6 @@ export default function LandingPage() {
               initial={{ width: "0%" }}
               animate={{ width: "100%" }}
               transition={{ duration: 3, ease: "linear" }}
-              // Ingen exit behöver, eftersom hela container försvinner i exit
             />
           </motion.div>
         )}
@@ -240,8 +240,9 @@ export default function LandingPage() {
                 {servicesData.map((service, index) => (
                   <motion.div
                     key={index}
-                    className="bg-[rgb(12,57,57)] rounded-lg p-8 shadow-md hover:shadow-lg transition-all"
-                    initial={{ opacity: 0, y: 20 }}
+                    /* Här är ~65% opacitet => ca 35% transparens */
+                    className="bg-[rgb(12,57,57)]/65 rounded-lg p-8 shadow-md hover:shadow-lg transition-all"
+                    initial={{ opacity: 0, y: 35 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.2 }}
@@ -260,8 +261,20 @@ export default function LandingPage() {
           </section>
 
           {/* ================= ABOUT SECTION ================= */}
-          <section id="about" className="py-24 bg-white text-center">
-            <div className="container mx-auto px-6">
+          <section
+            id="about"
+            className="relative py-24 text-center overflow-hidden"
+          >
+            {/* Bakgrundsbild + overlay (70% svart) */}
+            <motion.div
+              className="absolute inset-0 bg-cover bg-center before:absolute before:inset-0 before:bg-black/70"
+              style={{ backgroundImage: `url(${imgAboutUs})` }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.5 }}
+            />
+            <div className="relative container mx-auto px-6">
               <motion.h2
                 className="text-3xl md:text-4xl font-bold text-[rgb(215,175,107)] mb-8"
                 initial={{ opacity: 0, y: 20 }}
@@ -273,8 +286,8 @@ export default function LandingPage() {
 
               {/* Grön ruta med guld text */}
               <motion.div
-                className="mx-auto bg-[rgb(12,57,57)] text-[rgb(215,175,107)] rounded-lg p-8 shadow-md max-w-5xl"
-                initial={{ opacity: 0, y: 20 }}
+                className="mx-auto bg-[rgb(12,57,57)]/70 text-[rgb(215,175,107)] rounded-lg p-8 shadow-md max-w-5xl"
+                initial={{ opacity: 0, y: 35 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
