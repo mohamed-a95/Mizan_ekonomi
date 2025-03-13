@@ -240,7 +240,6 @@ export default function LandingPage() {
                 {servicesData.map((service, index) => (
                   <motion.div
                     key={index}
-                    /* Här är ~65% opacitet => ca 35% transparens */
                     className="bg-[rgb(12,57,57)]/65 rounded-lg p-8 shadow-md hover:shadow-lg transition-all"
                     initial={{ opacity: 0, y: 35 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -340,7 +339,7 @@ export default function LandingPage() {
             style={{ backgroundColor: "rgb(12,57,57)" }}
             className="text-[rgb(215,175,107)] pt-20"
           >
-            <div className="container mx-auto px-6 md:px-12">
+            <div className="container mx-auto px-4 md:px-12">
               <h2 className="text-3xl font-bold text-[rgb(215,175,107)]">
                 Kontakta oss
               </h2>
@@ -348,41 +347,86 @@ export default function LandingPage() {
                 Nå oss via mejl eller telefon:
               </p>
 
+              {/*  
+                  1 kolumn på mobil
+                  2 kolumner på större skärmar
+                  E-post & telefon på samma rad (md:flex-row)
+               */}
               <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
-                {/* E-post Column */}
+                <div className="flex flex-col gap-8">
+                  {/* Rad med e-post & telefon på större skärmar */}
+                  <div className="flex flex-col md:flex-row gap-8 md:gap-16">
+                    {/* E-post */}
+                    <div>
+                      <h3 className="text-lg font-semibold mb-4 text-[rgb(215,175,107)]">
+                        E-post
+                      </h3>
+                      <ul className="space-y-2">
+                        <li>
+                          <a
+                            href="mailto:info@mizanekonomi.se"
+                            className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
+                          >
+                            samrand.faik@mizanekonomi.se
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="mailto:redovisning@mizanekonomi.se"
+                            className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
+                          >
+                            shuayb.abokor@mizanekonomi.se
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="mailto:skatt@mizanekonomi.se"
+                            className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
+                          >
+                            rahim.yusuf@mizanekonomi.se
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Telefon */}
+                    <div>
+                      <h3 className="text-lg font-semibold mb-4 text-[rgb(215,175,107)]">
+                        Telefon
+                      </h3>
+                      <ul className="space-y-2">
+                        <li>
+                          <a
+                            href="tel:+46700973993"
+                            className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
+                          >
+                            +46 700 97 3993
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="tel:+46725625123"
+                            className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
+                          >
+                            +46 725 62 5123
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="tel:+46737894456"
+                            className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
+                          >
+                            +46 707 96 3457
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Sociala ikoner i egen kolumn på större skärmar */}
                 <div>
                   <h3 className="text-lg font-semibold mb-4 text-[rgb(215,175,107)]">
-                    E-post
-                  </h3>
-                  <ul className="space-y-2">
-                    <li>
-                      <a
-                        href="mailto:info@mizanekonomi.se"
-                        className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
-                      >
-                        samrand.faik@mizanekonomi.se
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="mailto:redovisning@mizanekonomi.se"
-                        className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
-                      >
-                        shuayb.abokor@mizanekonomi.se
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="mailto:skatt@mizanekonomi.se"
-                        className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
-                      >
-                        rahim.yusuf@mizanekonomi.se
-                      </a>
-                    </li>
-                  </ul>
-
-                  {/* Följ oss */}
-                  <h3 className="text-lg font-semibold mb-4 mt-8 text-[rgb(215,175,107)]">
                     Följ oss
                   </h3>
                   <div className="flex gap-4">
@@ -393,19 +437,19 @@ export default function LandingPage() {
                       className="p-3 bg-[rgb(215,175,107)]/10 rounded-full text-[rgb(215,175,107)] hover:bg-[rgb(215,175,107)]/20 transition-colors"
                       aria-label="Facebook"
                     >
-                      <FaFacebookF className="w-5 h-5" />
+                      {/* <FaFacebookF className="w-5 h-5" />
                     </a>
                     <a
-                      href="https://instagram.com/mizanekonomi"
+                      href="https://www.instagram.com/mizanekonomi?igsh=MWVkOTNldTl4NzRxZg%3D%3D&utm_source=qr"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-3 bg-[rgb(215,175,107)]/10 rounded-full text-[rgb(215,175,107)] hover:bg-[rgb(215,175,107)]/20 transition-colors"
                       aria-label="Instagram"
-                    >
+                    > */}
                       <FaInstagram className="w-5 h-5" />
                     </a>
                     <a
-                      href="https://linkedin.com/company/mizanekonomi"
+                      href="https://www.linkedin.com/company/mizan-ekonomi/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-3 bg-[rgb(215,175,107)]/10 rounded-full text-[rgb(215,175,107)] hover:bg-[rgb(215,175,107)]/20 transition-colors"
@@ -414,39 +458,6 @@ export default function LandingPage() {
                       <FaLinkedinIn className="w-5 h-5" />
                     </a>
                   </div>
-                </div>
-
-                {/* Telefon Column */}
-                <div>
-                  <h3 className="text-lg font-semibold mb-4 text-[rgb(215,175,107)]">
-                    Telefon
-                  </h3>
-                  <ul className="space-y-2">
-                    <li>
-                      <a
-                        href="tel:+46700973993"
-                        className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
-                      >
-                        +46 700 97 3993
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="tel:+46725625123"
-                        className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
-                      >
-                        +46 725 62 5123
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="tel:+46737894456"
-                        className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
-                      >
-                        +46 707 96 3457
-                      </a>
-                    </li>
-                  </ul>
                 </div>
               </div>
             </div>
