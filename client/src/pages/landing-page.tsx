@@ -347,7 +347,7 @@ export default function LandingPage() {
                         href="mailto:info@mizanekonomi.se"
                         className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
                       >
-                        info@mizanekonomi.se
+                        samrand.faik@mizanekonomi.se
                       </a>
                     </li>
                     <li>
@@ -355,7 +355,7 @@ export default function LandingPage() {
                         href="mailto:redovisning@mizanekonomi.se"
                         className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
                       >
-                        redovisning@mizanekonomi.se
+                        shuayb.abokor@mizanekonomi.se
                       </a>
                     </li>
                     <li>
@@ -363,7 +363,7 @@ export default function LandingPage() {
                         href="mailto:skatt@mizanekonomi.se"
                         className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
                       >
-                        skatt@mizanekonomi.se
+                        rahim.yusuf@mizanekonomi.se
                       </a>
                     </li>
                   </ul>
@@ -430,7 +430,7 @@ export default function LandingPage() {
                         href="tel:+46737894456"
                         className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
                       >
-                        +46 737 89 4456
+                        +46 707 96 3457
                       </a>
                     </li>
                   </ul>
