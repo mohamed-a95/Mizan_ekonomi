@@ -5,14 +5,22 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { scrollToSection } from "@/lib/scroll-to-section";
 
-import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaUserFriends,
+} from "react-icons/fa";
+
 import {
   FaFileInvoiceDollar,
   FaBookOpen,
   FaMoneyCheckAlt,
 } from "react-icons/fa";
 
-// Se till att alla paths stämmer i ditt projekt
 import imgHero from "/assets/photo-1520607162513-77705c0f0d4a.jpeg";
 import imgServices from "/assets/photo-1454165804606-c3d57bc86b40.avif";
 import imgBigLogo from "/assets/Mizan ekonomi  (5) (2).png";
@@ -165,7 +173,6 @@ export default function LandingPage() {
             id="home"
             className="relative flex items-center justify-center min-h-screen text-center overflow-hidden"
           >
-            {/* Bakgrundsbild + overlay */}
             <motion.div
               className="absolute inset-0 bg-cover bg-center before:absolute before:inset-0 before:bg-black/70"
               style={{ backgroundImage: `url(${imgHero})` }}
@@ -173,7 +180,6 @@ export default function LandingPage() {
               animate={{ opacity: 1 }}
               transition={{ duration: 1.5 }}
             />
-            {/* Textinnehåll i Hero */}
             <div className="relative flex flex-col justify-center items-center min-h-screen px-6">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -217,7 +223,6 @@ export default function LandingPage() {
             id="services"
             className="relative py-24 bg-white text-center overflow-hidden"
           >
-            {/* Bakgrundsbild + overlay */}
             <motion.div
               className="absolute inset-0 bg-cover bg-center before:absolute before:inset-0 before:bg-black/65"
               style={{ backgroundImage: `url(${imgServices})` }}
@@ -226,7 +231,6 @@ export default function LandingPage() {
               viewport={{ once: true }}
               transition={{ duration: 1.5 }}
             />
-            {/* Tjänsteinnehåll */}
             <div className="relative container mx-auto px-6">
               <motion.h2
                 className="text-3xl md:text-4xl font-bold text-[rgb(215,175,107)] mb-16"
@@ -264,7 +268,6 @@ export default function LandingPage() {
             id="about"
             className="relative py-24 text-center overflow-hidden"
           >
-            {/* Bakgrundsbild + overlay (70% svart) */}
             <motion.div
               className="absolute inset-0 bg-cover bg-center before:absolute before:inset-0 before:bg-black/70"
               style={{ backgroundImage: `url(${imgAboutUs})` }}
@@ -283,7 +286,6 @@ export default function LandingPage() {
                 Om oss
               </motion.h2>
 
-              {/* Grön ruta med guld text */}
               <motion.div
                 className="mx-auto bg-[rgb(12,57,57)]/70 text-[rgb(215,175,107)] rounded-lg p-8 shadow-md max-w-5xl"
                 initial={{ opacity: 0, y: 35 }}
@@ -340,112 +342,110 @@ export default function LandingPage() {
             className="text-[rgb(215,175,107)] pt-20"
           >
             <div className="container mx-auto px-4 md:px-12">
-              <h2 className="text-3xl font-bold text-[rgb(215,175,107)]">
+              <h2 className="text-3xl font-bold text-[rgb(215,175,107)] mb-6">
                 Kontakta oss
               </h2>
-              <p className="mt-4 text-lg text-[rgb(215,175,107)]">
-                Nå oss via mejl eller telefon:
+              <p className="text-lg text-[rgb(215,175,107)]">
+                Hör av dig via mejl, telefon eller besök oss:
               </p>
 
-              {/*  
-                  1 kolumn på mobil
-                  2 kolumner på större skärmar
-                  E-post & telefon på samma rad (md:flex-row)
-               */}
-              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
-                <div className="flex flex-col gap-8">
-                  {/* Rad med e-post & telefon på större skärmar */}
-                  <div className="flex flex-col md:flex-row gap-8 md:gap-16">
-                    {/* E-post */}
-                    <div>
-                      <h3 className="text-lg font-semibold mb-4 text-[rgb(215,175,107)]">
-                        E-post
-                      </h3>
-                      <ul className="space-y-2">
-                        <li>
-                          <a
-                            href="mailto:info@mizanekonomi.se"
-                            className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
-                          >
-                            samrand.faik@mizanekonomi.se
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="mailto:redovisning@mizanekonomi.se"
-                            className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
-                          >
-                            shuayb.abokor@mizanekonomi.se
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="mailto:skatt@mizanekonomi.se"
-                            className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
-                          >
-                            rahim.yusuf@mizanekonomi.se
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-
-                    {/* Telefon */}
-                    <div>
-                      <h3 className="text-lg font-semibold mb-4 text-[rgb(215,175,107)]">
-                        Telefon
-                      </h3>
-                      <ul className="space-y-2">
-                        <li>
-                          <a
-                            href="tel:+46700973993"
-                            className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
-                          >
-                            +46 700 97 3993
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="tel:+46725625123"
-                            className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
-                          >
-                            +46 725 62 5123
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="tel:+46737894456"
-                            className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
-                          >
-                            +46 707 96 3457
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
+              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                {/* Vänster: Kontaktuppgifter (epost/telefon) + adress */}
+                <div className="flex flex-col gap-6">
+                  {/* Kontaktuppgifter - ikon, rubrik */}
+                  <div className="flex items-center gap-2">
+                    <FaUserFriends />
+                    <h3 className="font-semibold text-lg">Kontaktuppgifter</h3>
                   </div>
+                  {/* E-post & telefon direkt under varandra */}
+                  <ul className="pl-7 space-y-3">
+                    <li>
+                      <FaEnvelope className="inline mr-2" />
+                      <a
+                        href="mailto:Samrand.faik@mizanekonomi.se"
+                        className="hover:text-[rgb(215,175,107)]/80 transition-colors text-sm"
+                      >
+                        Samrand.faik@mizanekonomi.se"
+                      </a>
+                      <br />
+                      <FaPhone className="inline mr-2 mt-1" />
+                      <a
+                        href="tel:+46700973993"
+                        className="hover:text-[rgb(215,175,107)]/80 transition-colors text-sm"
+                      >
+                        +46 700 97 3993
+                      </a>
+                    </li>
+                    <li>
+                      <FaEnvelope className="inline mr-2" />
+                      <a
+                        href="mailto:Shuayb.abokor@mizanekonomi.se"
+                        className="hover:text-[rgb(215,175,107)]/80 transition-colors text-sm"
+                      >
+                        Shuayb.abokor@mizanekonomi.se
+                      </a>
+                      <br />
+                      <FaPhone className="inline mr-2 mt-1" />
+                      <a
+                        href="tel:+46725625123"
+                        className="hover:text-[rgb(215,175,107)]/80 transition-colors text-sm"
+                      >
+                        +46 725 62 5123
+                      </a>
+                    </li>
+                    <li>
+                      <FaEnvelope className="inline mr-2" />
+                      <a
+                        href="mailto:Rahim.yusuf@mizanekonomi.se"
+                        className="hover:text-[rgb(215,175,107)]/80 transition-colors text-sm"
+                      >
+                        Rahim.yusuf@mizanekonomi.se
+                      </a>
+                      <br />
+                      <FaPhone className="inline mr-2 mt-1" />
+                      <a
+                        href="tel:+46737894456"
+                        className="hover:text-[rgb(215,175,107)]/80 transition-colors text-sm"
+                      >
+                        +46 707 96 3457
+                      </a>
+                    </li>
+                  </ul>
+
+                  {/* Adress */}
+                  <div className="flex items-center gap-2 mt-2">
+                    <FaMapMarkerAlt />
+                    <span className="font-semibold text-lg">Adress</span>
+                  </div>
+                  <p className="pl-7 text-sm">
+                    Mizan Ekonomi AB <br />
+                    Majorsvägen 55 <br />
+                    164 53 Kista
+                  </p>
                 </div>
 
-                {/* Sociala ikoner i egen kolumn på större skärmar */}
+                {/* Höger: Sociala medier */}
                 <div>
-                  <h3 className="text-lg font-semibold mb-4 text-[rgb(215,175,107)]">
+                  <h3 className="text-lg font-semibold mb-4 text-[rgb(215,175,107)] flex items-center gap-2">
                     Följ oss
                   </h3>
                   <div className="flex gap-4">
-                    <a
+                    {/*   <a
                       href="https://facebook.com/mizanekonomi"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-3 bg-[rgb(215,175,107)]/10 rounded-full text-[rgb(215,175,107)] hover:bg-[rgb(215,175,107)]/20 transition-colors"
                       aria-label="Facebook"
                     >
-                      {/* <FaFacebookF className="w-5 h-5" />
-                    </a>
+                      <FaFacebookF className="w-5 h-5" /> */}
+                    {/*  </a> */}
                     <a
-                      href="https://www.instagram.com/mizanekonomi?igsh=MWVkOTNldTl4NzRxZg%3D%3D&utm_source=qr"
+                      href="https://www.instagram.com/mizanekonomi/?igsh=MWVkOTNldTl4NzRxZg%3D%3D&utm_source=qr#"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-3 bg-[rgb(215,175,107)]/10 rounded-full text-[rgb(215,175,107)] hover:bg-[rgb(215,175,107)]/20 transition-colors"
                       aria-label="Instagram"
-                    > */}
+                    >
                       <FaInstagram className="w-5 h-5" />
                     </a>
                     <a
@@ -465,7 +465,7 @@ export default function LandingPage() {
             {/* Copyright */}
             <div
               className="mt-16 pt-8 border-t border-[rgb(215,175,107)]/20 w-full"
-              style={{ backgroundColor: "rgba(247,247,247,1)" }} // samma som navbar
+              style={{ backgroundColor: "rgba(247,247,247,1)" }}
             >
               <div className="text-center py-4">
                 <p className="text-[#0A4744] text-sm font-semibold">
