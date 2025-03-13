@@ -4,12 +4,16 @@ import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { scrollToSection } from "@/lib/scroll-to-section";
+
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import {
   FaFileInvoiceDollar,
   FaBookOpen,
   FaMoneyCheckAlt,
 } from "react-icons/fa";
+
+import imgHero from "/assets/photo-1520607162513-77705c0f0d4a.jpeg";
+import imgServices from "/assets/photo-1454165804606-c3d57bc86b40.avif";
 
 const navItems = [
   { label: "Hem", href: "#home" },
@@ -18,51 +22,26 @@ const navItems = [
   { label: "Kontakt", href: "#contact" },
 ];
 
-const services = [
+const servicesData = [
   {
     title: "Skattehantering och Deklaration",
     description:
       "Vi hjälper företag att hantera skatter och deklarationer smidigt och korrekt.",
-    icon: <FaFileInvoiceDollar className="text-4xl mb-4" />,
+    icon: (
+      <FaFileInvoiceDollar className="text-4xl mb-4 text-[rgb(215,175,107)]" />
+    ),
   },
   {
     title: "Bokföring och Årsredovisning",
     description:
       "Vi säkerställer korrekt bokföring och årsredovisning enligt gällande regler.",
-    icon: <FaBookOpen className="text-4xl mb-4" />,
+    icon: <FaBookOpen className="text-4xl mb-4 text-[rgb(215,175,107)]" />,
   },
   {
     title: "Lönehantering",
     description:
       "Vi hanterar löneutbetalningar och rapportering med precision och effektivitet.",
-    icon: <FaMoneyCheckAlt className="text-4xl mb-4" />,
-  },
-];
-
-const contactInfo = {
-  emails: [
-    "info@mizanekonomi.se",
-    "redovisning@mizanekonomi.se",
-    "skatt@mizanekonomi.se",
-  ],
-  phones: ["+46 700 97 3993", "+46 725 62 5123", "+46 737 89 4456"],
-};
-
-const socialLinks = [
-  {
-    icon: FaFacebookF,
-    href: "https://facebook.com/mizanekonomi",
-    label: "Facebook",
-  },
-  {
-    icon: FaInstagram,
-    href: "https://instagram.com/mizanekonomi",
-    label: "Instagram",
-  },
-  {
-    icon: FaLinkedinIn,
-    href: "https://linkedin.com/company/mizanekonomi",
-    label: "LinkedIn",
+    icon: <FaMoneyCheckAlt className="text-4xl mb-4 text-[rgb(215,175,107)]" />,
   },
 ];
 
@@ -71,35 +50,28 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
+      {/* ================= HEADER (NAVBAR) ================= */}
       <header className="sticky h-24 top-0 z-50 bg-[rgba(247,247,247,1)] shadow-md">
-        <div className="flex items-center justify-between w-full h-full pr-4 md:pr-8">
-          {/* Logo-container */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="flex-1 h-full flex items-center"
-          >
-            <img
-              src="assets/WhatsApp Image 2025-03-07 at 03.19.48.jpeg "
-              alt="Mizan Ekonomi"
-              className="h-full w-auto min-w-[6rem] md:min-w-[8rem]  object-left flex-shrink-0"
-            />
-          </motion.div>
+        <div className="flex items-center justify-between w-full h-full px-4 md:px-8">
+          {/* Logo */}
+          <img
+            src="/assets/WhatsApp Image 2025-03-07 at 03.19.48.jpeg"
+            alt="Mizan Ekonomi"
+            className="h-16 w-auto"
+          />
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex gap-8 pr-6">
+          <nav className="hidden md:flex gap-8">
             {navItems.map((item) => (
               <motion.a
                 key={item.href}
                 href={item.href}
-                className="text-lg font-medium text-gray-800 hover:text-primary transition-colors"
+                className="text-lg font-medium md:text-gray-700 text-[rgb(215,175,107)] hover:text-primary transition-colors"
+                whileHover={{ scale: 1.05 }}
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection(item.href.substring(1));
                 }}
-                whileHover={{ scale: 1.05 }}
               >
                 {item.label}
               </motion.a>
@@ -109,8 +81,9 @@ export default function LandingPage() {
           {/* Mobile Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden mr-6">
-                <Menu className="h-6 w-6" />
+              {/* Hamburgarikonen är alltid svart */}
+              <Button variant="ghost" size="icon" className="md:hidden">
+                <Menu className="h-6 w-6 text-black" />
               </Button>
             </SheetTrigger>
             <SheetContent side="right">
@@ -119,7 +92,7 @@ export default function LandingPage() {
                   <a
                     key={item.href}
                     href={item.href}
-                    className="text-lg font-medium hover:text-primary"
+                    className="text-lg font-medium text-[rgb(215,175,107)] hover:text-primary"
                     onClick={(e) => {
                       e.preventDefault();
                       scrollToSection(item.href.substring(1));
@@ -135,43 +108,49 @@ export default function LandingPage() {
         </div>
       </header>
 
-      {/* Hero Section */}
+      {/* ================= HERO SECTION ================= */}
       <section
         id="home"
-        className="relative min-h-[80vh] flex items-center bg-[#0A4744] overflow-hidden"
+        className="relative flex items-center justify-center min-h-screen text-center overflow-hidden"
       >
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url(/hero-bg.jpg)",
-            opacity: 0.2,
-          }}
+        {/* Bakgrundsbild + overlay */}
+        <motion.div
+          className="absolute inset-0 bg-cover bg-center before:absolute before:inset-0 before:bg-black/70"
+          style={{ backgroundImage: `url(${imgHero})` }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
         />
-        <div className="container mx-auto px-6 relative z-10">
+        {/* Textinnehåll i Hero */}
+        <div className="relative flex flex-col justify-center items-center min-h-screen px-6">
           <motion.div
-            className="max-w-3xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className="max-w-3xl flex flex-col items-center"
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-[rgb(215,175,107)] mb-6">
-              Professionell Redovisning & Rådgivning
+            <h1 className="text-4xl font-bold uppercase leading-tight text-[rgb(215,175,107)] max-[560px]:text-3xl">
+              Välkommen till <br />
+              Mizan Ekonomi
             </h1>
-            <p className="text-xl text-[rgb(215,175,107)] mb-8">
-              Vi hjälper ditt företag att växa med skräddarsydda ekonomitjänster
-              och personlig service
+            <div className="bg-[rgb(215,175,107)] h-[3px] w-full max-w-[500px] my-4"></div>
+            <p className="mt-6 px-5 max-w-[700px] text-xl font-normal text-[rgb(215,175,107)] max-[560px]:text-base">
+              Vi erbjuder skräddarsydda ekonomitjänster för företag och
+              privatpersoner. Med vår expertis inom redovisning, deklaration och
+              ekonomisk rådgivning ser vi till att du kan fokusera på det som är
+              viktigt – din verksamhet.
             </p>
-            <div className="flex gap-4">
+            <div className="flex justify-center mt-14 gap-6">
               <Button
                 size="lg"
-                className="bg-[rgb(215,175,107)] hover:bg-[rgb(215,175,107)]/90 text-[#0A4744]"
+                className="bg-[rgb(215,175,107)] hover:bg-[rgb(215,175,107)]/90 text-[#0A4744] py-3 px-6 font-semibold uppercase rounded-md"
                 onClick={() => scrollToSection("services")}
               >
                 Våra tjänster
               </Button>
               <Button
                 size="lg"
-                className="bg-[rgb(215,175,107)] hover:bg-[rgb(215,175,107)]/90 text-[#0A4744]"
+                className="bg-[rgb(215,175,107)] hover:bg-[rgb(215,175,107)]/90 text-[#0A4744] py-3 px-6 font-semibold uppercase rounded-md"
                 onClick={() => scrollToSection("contact")}
               >
                 Kontakta oss
@@ -181,87 +160,118 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="py-24 bg-white">
-        <div className="container mx-auto px-6">
+      {/* ================= SERVICES SECTION ================= */}
+      <section
+        id="services"
+        className="relative py-24 bg-white text-center overflow-hidden"
+      >
+        {/* Bakgrundsbild + overlay */}
+        <motion.div
+          className="absolute inset-0 bg-cover bg-center before:absolute before:inset-0 before:bg-black/65"
+          style={{ backgroundImage: `url(${imgServices})` }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.5 }}
+        />
+        {/* Tjänsteinnehåll */}
+        <div className="relative container mx-auto px-6">
           <motion.h2
-            className="text-3xl md:text-4xl font-bold text-center mb-16"
+            className="text-3xl md:text-4xl font-bold text-[rgb(215,175,107)] mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
             Våra Tjänster
           </motion.h2>
-          <div className="grid md:grid-cols-3 gap-12">
-            {services.map((service, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
+            {servicesData.map((service, index) => (
               <motion.div
                 key={index}
-                className="bg-gray-50 rounded-lg p-8 shadow-sm hover:shadow-lg transition-all"
+                className="bg-[rgb(12,57,57)] rounded-lg p-8 shadow-md hover:shadow-lg transition-all"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
               >
-                <span className="text-4xl mb-4 block">{service.icon}</span>
-                <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
-                <p className="text-gray-600">{service.description}</p>
+                <span>{service.icon}</span>
+                <h3 className="text-xl font-semibold mb-4 text-[rgb(215,175,107)]">
+                  {service.title}
+                </h3>
+                <p className="text-[rgb(215,175,107)]">{service.description}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-24 bg-gray-50">
+      {/* ================= ABOUT SECTION ================= */}
+      <section id="about" className="py-24 bg-white text-center">
         <div className="container mx-auto px-6">
-          <motion.div
-            className="max-w-4xl mx-auto"
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold text-[rgb(215,175,107)] mb-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
-              Om oss
-            </h2>
-            <div className="bg-white rounded-lg p-8 shadow-md">
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Vi är en digital redovisningsbyrå som kombinerar personlig
-                service med modern teknik. Med skräddarsydda lösningar hanterar
-                vi bokföring, löner, bokslut och deklarationer både noggrant och
-                effektivt. Vårt mål är att förenkla ekonomin och skapa trygghet,
-                så du kan fokusera på tillväxt.
-              </p>
-              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="flex items-center gap-3">
-                  <span className="text-primary">✓</span>
-                  <span>Skräddarsydda lösningar</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span className="text-primary">✓</span>
-                  <span>Digital & effektiv hantering</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span className="text-primary">✓</span>
-                  <span>Personlig service</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span className="text-primary">✓</span>
-                  <span>Trygghet & noggrannhet</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <span className="text-primary">✓</span>
-                  <span>Tidsbesparande & fokus</span>
-                </div>
+            Om oss
+          </motion.h2>
+
+          {/* Grön ruta med guld text */}
+          <motion.div
+            className="mx-auto bg-[rgb(12,57,57)] text-[rgb(215,175,107)] rounded-lg p-8 shadow-md max-w-5xl"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-lg leading-relaxed">
+              Vi är en digital redovisningsbyrå som kombinerar personlig service
+              med modern teknik. Med skräddarsydda lösningar hanterar vi
+              bokföring, löner, bokslut och deklarationer både noggrant och
+              effektivt. Vårt mål är att förenkla ekonomin och skapa trygghet,
+              så du kan fokusera på tillväxt.
+            </p>
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="flex items-center gap-3">
+                <span className="text-[rgb(215,175,107)]">✓</span>
+                <span className="text-[rgb(215,175,107)]">
+                  Skräddarsydda lösningar
+                </span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-[rgb(215,175,107)]">✓</span>
+                <span className="text-[rgb(215,175,107)]">
+                  Digital & effektiv hantering
+                </span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-[rgb(215,175,107)]">✓</span>
+                <span className="text-[rgb(215,175,107)]">
+                  Personlig service
+                </span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-[rgb(215,175,107)]">✓</span>
+                <span className="text-[rgb(215,175,107)]">
+                  Trygghet & noggrannhet
+                </span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-[rgb(215,175,107)]">✓</span>
+                <span className="text-[rgb(215,175,107)]">
+                  Tidsbesparande & fokus
+                </span>
               </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Footer */}
+      {/* ================= FOOTER SECTION ================= */}
       <footer
         id="contact"
-        className="bg-[#0A4744] text-[rgb(215,175,107)] py-20"
+        style={{ backgroundColor: "rgb(12,57,57)" }}
+        className="text-[rgb(215,175,107)] pt-20"
       >
         <div className="container mx-auto px-6 md:px-12">
           <h2 className="text-3xl font-bold text-[rgb(215,175,107)]">
@@ -272,75 +282,118 @@ export default function LandingPage() {
           </p>
 
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
-            {/* Email Column */}
+            {/* E-post Column */}
             <div>
               <h3 className="text-lg font-semibold mb-4 text-[rgb(215,175,107)]">
                 E-post
               </h3>
               <ul className="space-y-2">
-                {contactInfo.emails.map((email, index) => (
-                  <li key={index}>
-                    <a
-                      href={`mailto:${email}`}
-                      className="text-sm text-[rgb(215,175,107)] hover:text-[rgb(215,175,107)]/80 transition-colors"
-                    >
-                      {email}
-                    </a>
-                  </li>
-                ))}
+                <li>
+                  <a
+                    href="mailto:info@mizanekonomi.se"
+                    className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
+                  >
+                    info@mizanekonomi.se
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="mailto:redovisning@mizanekonomi.se"
+                    className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
+                  >
+                    redovisning@mizanekonomi.se
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="mailto:skatt@mizanekonomi.se"
+                    className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
+                  >
+                    skatt@mizanekonomi.se
+                  </a>
+                </li>
               </ul>
+
+              {/* Följ oss */}
+              <h3 className="text-lg font-semibold mb-4 mt-8 text-[rgb(215,175,107)]">
+                Följ oss
+              </h3>
+              <div className="flex gap-4">
+                <a
+                  href="https://facebook.com/mizanekonomi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-[rgb(215,175,107)]/10 rounded-full text-[rgb(215,175,107)] hover:bg-[rgb(215,175,107)]/20 transition-colors"
+                  aria-label="Facebook"
+                >
+                  <FaFacebookF className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://instagram.com/mizanekonomi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-[rgb(215,175,107)]/10 rounded-full text-[rgb(215,175,107)] hover:bg-[rgb(215,175,107)]/20 transition-colors"
+                  aria-label="Instagram"
+                >
+                  <FaInstagram className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://linkedin.com/company/mizanekonomi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-[rgb(215,175,107)]/10 rounded-full text-[rgb(215,175,107)] hover:bg-[rgb(215,175,107)]/20 transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  <FaLinkedinIn className="w-5 h-5" />
+                </a>
+              </div>
             </div>
 
-            {/* Phone Column */}
+            {/* Telefon Column */}
             <div>
               <h3 className="text-lg font-semibold mb-4 text-[rgb(215,175,107)]">
                 Telefon
               </h3>
               <ul className="space-y-2">
-                {contactInfo.phones.map((phone, index) => (
-                  <li key={index}>
-                    <a
-                      href={`tel:${phone}`}
-                      className="text-sm text-[rgb(215,175,107)] hover:text-[rgb(215,175,107)]/80 transition-colors"
-                    >
-                      {phone}
-                    </a>
-                  </li>
-                ))}
+                <li>
+                  <a
+                    href="tel:+46700973993"
+                    className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
+                  >
+                    +46 700 97 3993
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="tel:+46725625123"
+                    className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
+                  >
+                    +46 725 62 5123
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="tel:+46737894456"
+                    className="text-sm hover:text-[rgb(215,175,107)]/80 transition-colors"
+                  >
+                    +46 737 89 4456
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
+        </div>
 
-          {/* Social Links */}
-          <div className="mt-12">
-            <h3 className="text-lg font-semibold mb-4 text-[rgb(215,175,107)]">
-              Följ oss
-            </h3>
-            <div className="flex gap-4">
-              {socialLinks.map((social, index) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 bg-[rgb(215,175,107)]/10 rounded-full text-[rgb(215,175,107)] hover:bg-[rgb(215,175,107)]/20 transition-colors"
-                    aria-label={social.label}
-                  >
-                    <Icon className="w-5 h-5" />
-                  </a>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Copyright and Org Number */}
-          <div className="mt-16 pt-8 border-t border-[rgb(215,175,107)]/20 text-center">
-            <p className="text-[rgb(215,175,107)] text-sm">
+        {/* Copyright */}
+        <div
+          className="mt-16 pt-8 border-t border-[rgb(215,175,107)]/20 w-full"
+          style={{ backgroundColor: "rgba(247,247,247,1)" }} // samma som navbar
+        >
+          <div className="text-center py-4">
+            <p className="text-[rgb(215,175,107)] text-sm font-semibold">
               Org.nr: 559339-7242
             </p>
-            <p className="text-[rgb(215,175,107)] text-sm mt-2">
+            <p className="text-[rgb(215,175,107)] text-sm mt-2 font-semibold">
               © {new Date().getFullYear()} Mizan Ekonomi. Alla rättigheter
               förbehållna.
             </p>
