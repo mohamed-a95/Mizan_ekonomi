@@ -263,7 +263,7 @@ export default function LandingPage() {
           <section id="about" className="py-24 bg-white text-center">
             <div className="container mx-auto px-6">
               <motion.h2
-                className="text-3xl md:text-4xl font-bold text-[rgb(215,175,107)] mb-8"
+                className="text-3xl md:text-4xl font-bold text-[#0A4744] mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -279,11 +279,11 @@ export default function LandingPage() {
                 viewport={{ once: true }}
               >
                 <p className="text-lg leading-relaxed">
-                  Vi är en digital redovisningsbyrå som kombinerar personlig
-                  service med modern teknik. Med skräddarsydda lösningar
-                  hanterar vi bokföring, löner, bokslut och deklarationer både
-                  noggrant och effektivt. Vårt mål är att förenkla ekonomin och
-                  skapa trygghet, så du kan fokusera på tillväxt.
+                  Vi är en redovisningsbyrå som kombinerar personlig service med
+                  modern teknik. Med skräddarsydda lösningar hanterar vi
+                  bokföring, löner, bokslut och deklarationer både noggrant och
+                  effektivt. Vårt mål är att förenkla ekonomin och skapa
+                  trygghet, så du kan fokusera på tillväxt.
                 </p>
                 <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="flex items-center gap-3">
@@ -444,10 +444,10 @@ export default function LandingPage() {
               style={{ backgroundColor: "rgba(247,247,247,1)" }} // samma som navbar
             >
               <div className="text-center py-4">
-                <p className="text-[rgb(215,175,107)] text-sm font-semibold">
+                <p className="text-[#0A4744] text-sm font-semibold">
                   Org.nr: 559339-7242
                 </p>
-                <p className="text-[rgb(215,175,107)] text-sm mt-2 font-semibold">
+                <p className="text-[#0A4744] text-sm mt-2 font-semibold">
                   © {new Date().getFullYear()} Mizan Ekonomi. Alla rättigheter
                   förbehållna.
                 </p>
