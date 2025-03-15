@@ -365,7 +365,7 @@ export default function LandingPage() {
                         href="mailto:Samrand.faik@mizanekonomi.se"
                         className="hover:text-[rgb(215,175,107)]/80 transition-colors text-sm"
                       >
-                        Samrand.faik@mizanekonomi.se"
+                        Samrand.faik@mizanekonomi.se
                       </a>
                       <br />
                       <FaPhone className="inline mr-2 mt-1" />
@@ -404,7 +404,7 @@ export default function LandingPage() {
                       <br />
                       <FaPhone className="inline mr-2 mt-1" />
                       <a
-                        href="tel:+46737894456"
+                        href="tel:+46707963457"
                         className="hover:text-[rgb(215,175,107)]/80 transition-colors text-sm"
                       >
                         +46 707 96 3457
